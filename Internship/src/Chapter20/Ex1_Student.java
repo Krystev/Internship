@@ -20,7 +20,7 @@ public class Ex1_Student extends Ex1_Human implements Comparable<Ex1_Student>{
 	@Override
 	public int compareTo(Ex1_Student stud) {
 		
-		if (this.getRating() > stud.getRating()) {
+		if (this.getRating() < stud.getRating()) {
 			return 1;
 		} else if (this.getRating() == stud.getRating()) {
 			return 0;

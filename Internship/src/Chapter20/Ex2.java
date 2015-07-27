@@ -13,15 +13,12 @@ public class Ex2 {
 			System.out.println(students[i].getRating());
 		}
 		
-		
-		for (int i = 0; i < students.length - 1; i++) {
-			for (int j = 0; j < students.length - 1; j++) {
-				if (students[j].compareTo(students[i]) == 1){
-					
-					Ex1_Student temp = students[j ];
-					students[j] = students[j + 1];
-					students[j + 1] = temp;
-					
+		for (int i = 1; i < students.length; i++) {
+			for (int j = students.length - 1; j >= i; j--) {
+				if (students[j].compareTo(students[j-1]) == 1){
+					Ex1_Student temp = students[j-1];
+					students[j-1] = students[j];
+					students[j] = temp;
 				}
 			}	
 		}
