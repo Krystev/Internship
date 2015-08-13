@@ -10,7 +10,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class AssetLoader {
-	public static Texture texture, logoTexture, texture1, liverbird;
+	public static Texture texture, logoTexture, texture1;
 	public static TextureRegion bg;
 	public static TextureRegion grass;
 	public static Animation logoAnimation;
@@ -18,7 +18,7 @@ public class AssetLoader {
 			playButtonDown, ready, gameOver, highScore, scoreboard, star,
 			gameLogo, noStar, retry, firstCandy, secondCandy, mmLogo;
 	public static TextureRegion barTopUp, barTopDown, bar;
-	public static TextureRegion androidLogo, appleLogo;
+	public static TextureRegion androidLogo, appleLogo, enemyLogo;
 	public static Sound dead, flap, coin, fall, kick, hit;
 	public static BitmapFont font, shadow, whiteFont;
 	private static Preferences prefs;
@@ -34,8 +34,6 @@ public class AssetLoader {
 		texture1 = new Texture(Gdx.files.internal("data/texture1.png"));
 		texture1.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
 		
-		liverbird = new Texture(Gdx.files.internal("data/Liverbird.png"));
-		liverbird.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
 		
 		playButtonUp = new TextureRegion(texture, 0, 83, 29, 16);
 		playButtonDown = new TextureRegion(texture, 29, 83, 29, 16);
@@ -93,6 +91,8 @@ public class AssetLoader {
 		androidLogo.flip(false, true);
 		appleLogo = new TextureRegion(texture, 147, 22, 11, 14);
 		appleLogo.flip(false, true);
+		enemyLogo = new TextureRegion(texture1, 492, 0, 225, 200);
+		enemyLogo.flip(false, true);
 		
 		bar = new TextureRegion(texture, 136, 16, 22, 3);
 		bar.flip(false, true);

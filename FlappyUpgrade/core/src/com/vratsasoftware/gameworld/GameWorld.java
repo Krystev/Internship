@@ -57,17 +57,17 @@ public class GameWorld {
 		}
 		logo.update(delta);
 		scroller.update(delta);
-//
-//		if (scroller.collides(logo) && logo.isAlive()) {
-//			scroller.stop();
-//			logo.die();
-//			Sound.playDead();
-//
-//			renderer.prepareTransition(255, 255, 255, .3f);
-//			Sound.playFall();
-//
-//		} else 
-		if (scroller.scored(logo) && logo.isAlive()) {
+
+		if (Intersector.overlaps(logo.getBoundingCircle(), scroller.getEnemyObject().getBoundingCircle() )
+				&& logo.isAlive() && scroller.getEnemyObject().isVisible()) {
+			scroller.stop();
+			logo.die();
+			Sound.playDead();
+
+			renderer.prepareTransition(255, 255, 255, .3f);
+			Sound.playFall();
+		
+		} else if (scroller.scored(logo) && logo.isAlive()) {
 			// TODO add logic to hide candy
 			// AssetLoader.coin.play();
 

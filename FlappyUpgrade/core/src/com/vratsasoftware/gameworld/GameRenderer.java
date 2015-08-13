@@ -35,7 +35,7 @@ public class GameRenderer {
 	private Animation logoAnimation;
 	private TextureRegion bg, grass;
 	private TextureRegion logoMid, mmGameLogo;
-	private TextureRegion barTopUp, barTopDown, bar, bonusLogoAndroid, bonusLogoApple;
+	private TextureRegion barTopUp, barTopDown, bar, bonusLogoAndroid, bonusLogoApple, enemyLogo;
 	private TextureRegion ready, gameOver, highScore, scoreboard, star, noStar, retry;
 
 	private ScrollHandler scroller;
@@ -118,6 +118,7 @@ public class GameRenderer {
 		bar = AssetLoader.bar;
 		bonusLogoAndroid = AssetLoader.androidLogo;
 		bonusLogoApple = AssetLoader.appleLogo;
+		enemyLogo = AssetLoader.enemyLogo;
 		highScore = AssetLoader.highScore;
 		scoreboard = AssetLoader.scoreboard;
 		retry = AssetLoader.retry;
@@ -125,6 +126,7 @@ public class GameRenderer {
 		star = AssetLoader.star;
 		noStar = AssetLoader.noStar;
 		gameOver = AssetLoader.gameOver;
+		
 	}
 
 	private void drawGrass() {
@@ -168,7 +170,7 @@ public class GameRenderer {
 	private void drawEnemyObject() {
 		if (myWorld.isRunning()) {
 			if (enemyObject.isVisible() && logo.isAlive()) {
-				batcher.draw(bonusLogoAndroid, enemyObject.getX(), enemyObject.getY(), enemyObject.getWidth(), enemyObject.getHeight());
+				batcher.draw(enemyLogo, enemyObject.getX(), enemyObject.getY(), enemyObject.getWidth(), enemyObject.getHeight());
 			}
 		} else {
 			enemyObject.setVisible(false);

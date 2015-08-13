@@ -3,10 +3,12 @@ package com.vratsasoftware.zbhelpers;
 import java.util.ArrayList;
 import java.util.List;
 import com.badlogic.gdx.Input.Keys;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.vratsasoftware.gameobjects.BonusLogo;
 import com.vratsasoftware.gameobjects.Logo;
 import com.vratsasoftware.gameworld.GameWorld;
+import com.vratsasoftware.screens.GameScreen;
 import com.vratsasoftware.ui.SimpleButton;
 
 public class InputHandler implements InputProcessor {
@@ -33,6 +35,7 @@ public class InputHandler implements InputProcessor {
 
 	@Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+		
 		screenX = scaleX(screenX);
 		screenY = scaleY(screenY);
 		System.out.println(screenX + " " + screenY);
@@ -41,7 +44,14 @@ public class InputHandler implements InputProcessor {
 		} else if (myWorld.isReady()) {
 			myWorld.start();
 		}
-		myLogo.onClick();
+		
+		if (screenX <  136 / 2) {
+			myLogo.onClick();
+		} else if (screenX > 136 / 2 && (bullet.isScrolledRight() || bullet.isVisible() == false)) {
+			Sound.playKick();
+			bullet.resetBullet(myWorld.getLogo().getX(), (int) myWorld.getLogo().getY());
+		}
+		
 
 		if (myWorld.isGameOver() || myWorld.isHighScore()) {
 			myWorld.restart();
@@ -53,6 +63,7 @@ public class InputHandler implements InputProcessor {
 	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
 		screenX = scaleX(screenX);
 		screenY = scaleY(screenY);
+		
 		if (myWorld.isMenu()) {
 			if (playButton.isTouchUp(screenX, screenY)) {
 				myWorld.ready();
@@ -75,7 +86,7 @@ public class InputHandler implements InputProcessor {
 			if (myWorld.isGameOver() || myWorld.isHighScore()) {
 				myWorld.restart();
 			}
-		} else if (keycode == Keys.CONTROL_RIGHT && bullet.isScrolledRight()) {
+		} else if (keycode == Keys.CONTROL_RIGHT && (bullet.isScrolledRight() || bullet.isVisible() == false)) {
 			Sound.playKick();
 			bullet.resetBullet(myWorld.getLogo().getX(), (int) myWorld.getLogo().getY());
 		}

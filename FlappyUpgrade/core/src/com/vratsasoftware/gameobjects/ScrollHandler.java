@@ -27,7 +27,8 @@ public class ScrollHandler {
 		
 		bullet = new BonusLogo(gameWorld.getLogo().getX(), gameWorld.getLogo().getY(),
 				(int) gameWorld.getLogo().getWidth(), (int) gameWorld.getLogo().getHeight(), -SCROLL_SPEED);
-		setEnemyObject(new BonusLogo(140, 15, 40, 40, SCROLL_SPEED));
+		
+		setEnemyObject(new BonusLogo(140, 15, 50, 50, SCROLL_SPEED));
 	}
 
 	
