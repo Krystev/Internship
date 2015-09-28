@@ -24,7 +24,7 @@
             android:parentActivityName=".MyActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.tito.myfirstapp.MyActivity" />
+                android:value="com.tito.myfirstapp.MyActivity"/>
         </activity>
     </application>
 

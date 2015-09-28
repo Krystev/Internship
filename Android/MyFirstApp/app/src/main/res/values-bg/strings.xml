@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Моето първо приложение</string>
+
+    <string name="action_settings">Настройки</string>
+    <string name="edit_message">Въведете съобщение</string>
+    <string name="buttton_send">Изпрати</string>
+    <string name="title_activity_display_message">Моето съобщение</string>
+
+    <string name="action_search">Търси</string>
+
+</resources>
