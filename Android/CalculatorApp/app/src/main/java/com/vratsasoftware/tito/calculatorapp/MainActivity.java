@@ -112,7 +112,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     num1 = Double.parseDouble(textField.getText().toString());
                 }
                 result = Math.sqrt(num1);
-                textField.setText(String.valueOf(result));
+
+                if (result % 1 == 0) {
+                    textField.setText(String.valueOf((long) result));
+                } else {
+                    textField.setText(String.valueOf(result));
+                }
                 break;
 
             case R.id.button_minus:
@@ -165,8 +170,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 } else {
                     num1 = Double.parseDouble(textField.getText().toString());
                 }
-                result = factorial((int) num1);
-                textField.setText(String.valueOf(result));
+                if (num1 < 1000) {
+                    result = factorial((int) num1);
+                    textField.setText(String.valueOf((long)result));
+                } else {
+                    textField.setText("");
+                }
+
+
                 break;
 
             case R.id.button_result:
@@ -178,7 +189,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (plus > 0) {
                     result = num1 + num2;
                     if (result % 1 == 0) {
-                        textField.setText(String.valueOf((int) result));
+                        textField.setText(String.valueOf((long) result));
                     } else {
                         textField.setText(String.valueOf(result));
                     }
@@ -188,7 +199,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (minus > 0) {
                     result = num1 - num2;
                     if (result % 1 == 0) {
-                        textField.setText(String.valueOf((int) result));
+                        textField.setText(String.valueOf((long) result));
                     } else {
                         textField.setText(String.valueOf(result));
                     }
@@ -198,7 +209,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (divider > 0) {
                     result = num1 / num2;
                     if (result % 1 == 0) {
-                        textField.setText(String.valueOf((int) result));
+                        textField.setText(String.valueOf((long) result));
                     } else {
                         textField.setText(String.valueOf(result));
                     }
@@ -208,7 +219,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (multiplier > 0) {
                     result = num1 * num2;
                     if (result % 1 == 0) {
-                        textField.setText(String.valueOf((int) result));
+                        textField.setText(String.valueOf((long) result));
                     } else {
                         textField.setText(String.valueOf(result));
                     }
@@ -218,7 +229,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (onPower > 0) {
                     result = Math.pow(num1, num2);
                     if (result % 1 == 0) {
-                        textField.setText(String.valueOf((int) result));
+                        textField.setText(String.valueOf((long) result));
                     } else {
                         textField.setText(String.valueOf(result));
                     }
@@ -295,7 +306,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    private int factorial(int n) {
+    private long factorial(int n) {
         if (n == 0)
             return 1;
 
