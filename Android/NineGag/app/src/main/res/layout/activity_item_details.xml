@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="com.vratsasoftware.tito.ninegag.ItemDetailsActivity">
+
+    <TextView
+        android:id="@+id/txt_item_name_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_gravity="left|center_horizontal"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView_details"
+        android:scaleType="centerInside"
+        android:layout_gravity="center_horizontal" />
+
+    <TableLayout
+        android:layout_width="354dp"
+        android:layout_height="59dp" >
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:drawableTop="@drawable/ic_action_vote_up"
+                android:id="@+id/button3"
+                android:layout_column="0"
+                android:backgroundTint="@android:color/white" />
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:drawableTop="@drawable/ic_action_vote_down"
+                android:id="@+id/button4"
+                android:layout_column="2"
+                android:backgroundTint="@android:color/white" />
+        </TableRow>
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/txt_item_points_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left" />
+
+</LinearLayout>
