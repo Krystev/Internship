@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Text Editor</string>
+    <string name="def_text">Default Text</string>
+    <string name="enter_txt">Enter text</string>
+    <string name="action_search">Search</string>
+    <string name="definition">Definition:</string>
+    <string name="replace_text">Enter word for replace</string>
+</resources>
