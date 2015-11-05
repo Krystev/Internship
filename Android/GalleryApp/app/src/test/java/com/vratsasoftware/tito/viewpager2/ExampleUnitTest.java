@@ -1,4 +1,4 @@
-package com.vratsasoftware.tito.galleryapp;
+package com.vratsasoftware.tito.gallery;
 
 import org.junit.Test;
 
