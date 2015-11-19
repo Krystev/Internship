@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">My GCM App</string>
+    <string name="gcm_project_id">412193756907</string>
+    <string name="txt_no_play_services">[<![CDATA[
+    Either you do not have Google Play Services or your
+    Google Play Services package is not up to date.
+    Please download the app from Google Play or update
+    your existing app.
+    ]]></string>
+
+</resources>
