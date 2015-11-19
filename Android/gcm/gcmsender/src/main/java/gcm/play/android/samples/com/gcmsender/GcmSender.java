@@ -1,12 +1,12 @@
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
- *
+ * <p/>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
+ * <p/>
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * <p/>
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -17,6 +17,7 @@
 package gcm.play.android.samples.com.gcmsender;
 
 import org.apache.commons.io.IOUtils;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -29,34 +30,20 @@ public class GcmSender {
 
     public static final String API_KEY = "AIzaSyBbNlaT4GnxcKGNm109XoFvaaeU03dqR5A";
 
-    public static void main(String[] args) {
-        if (args.length < 1 || args.length > 2 || args[0] == null) {
-            System.err.println("usage: ./gradlew run -Pmsg=\"MESSAGE\" [-Pto=\"DEVICE_TOKEN\"]");
-            System.err.println("");
-            System.err.println("Specify a test message to broadcast via GCM. If a device's GCM registration token is\n" +
-                    "specified, the message will only be sent to that device. Otherwise, the message \n" +
-                    "will be sent to all devices subscribed to the \"global\" topic.");
-            System.err.println("");
-            System.err.println("Example (Broadcast):\n" +
-                    "On Windows:   .\\gradlew.bat run -Pmsg=\"<Your_Message>\"\n" +
-                    "On Linux/Mac: ./gradlew run -Pmsg=\"<Your_Message>\"");
-            System.err.println("");
-            System.err.println("Example (Unicast):\n" +
-                    "On Windows:   .\\gradlew.bat run -Pmsg=\"<Your_Message>\" -Pto=\"<Your_Token>\"\n" +
-                    "On Linux/Mac: ./gradlew run -Pmsg=\"<Your_Message>\" -Pto=\"<Your_Token>\"");
-            System.exit(1);
-        }
+    String msg;
+
+    public GcmSender(String msg) throws JSONException, IOException {
+        this.msg = msg;
+    }
+
+    public void sendMSg() {
         try {
             // Prepare JSON containing the GCM message content. What to send and where to send.
             JSONObject jGcmData = new JSONObject();
             JSONObject jData = new JSONObject();
-            jData.put("message", args[0].trim());
+            jData.put("message", msg);
             // Where to send GCM message.
-            if (args.length > 1 && args[1] != null) {
-                jGcmData.put("to", args[1].trim());
-            } else {
-                jGcmData.put("to", "/topics/global");
-            }
+            jGcmData.put("to", "/topics/global");
             // What to send in GCM message.
             jGcmData.put("data", jData);
 
@@ -83,7 +70,8 @@ public class GcmSender {
             System.out.println("Please ensure that API_KEY has been replaced by the server " +
                     "API key, and that the device's registration token is correct (if specified).");
             e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
-
 }
